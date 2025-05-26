@@ -4,3 +4,17 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+clap = { version = "4.4", features = ["derive"] }    # CLI parsing
+dialoguer = "0.11"                                   # Interactive user input
+rand = "0.9.1"                                       # Password generation
+clipboard = "0.5"                                    # Copy to clipboard
+serde = { version = "1.0", features = ["derive"] }   # Data serialization
+serde_json = "1.0"                                   # Working with JSON
+dirs = "6.0"                                         # User directories
+aes-gcm = "0.10"                                     # Password encryption
+base64 = "0.22.1"                                    # Base64 encoding
+arboard = "3.3"                                      # Clipboard support
+aes = "0.8"                                          # AES encryption
+pbkdf2 = "0.12.2"                                    # Password hashing
+sha2 = "0.10.9"                                      # SHA-2 hashing    
+rpassword = "7.0"                                    # Secure password input
