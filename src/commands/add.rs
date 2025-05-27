@@ -1,5 +1,7 @@
 use crate::models::PasswordEntry;
 use crate::storage::{load_vault, save_vault};
+use crate::utils::copy_to_clipboard::*;
+
 use dialoguer::{Input, Password, Select};
 use rand::random_range;
 
@@ -22,7 +24,8 @@ fn manual_add() {
         .interact()
         .unwrap();
 
-    save_password(service, password);
+    save_password(service.clone(), password);
+    println!("✅ Password for '{}' saved.", service);
 }
 
 fn generate_and_add() {
@@ -56,9 +59,12 @@ fn generate_and_add() {
 
     let generated = generate_password(length, selected_case, use_specials);
 
-    println!("🔐 Generated: {generated}");
-
-    save_password(service, generated);
+    save_password(service.clone(), generated.clone());
+    copy_to_clipboard(&generated);
+    println!(
+        "✅ Password for '{}' saved and copied to clipboard.",
+        service
+    );
 }
 
 fn save_password(service: String, password: String) {
@@ -71,7 +77,6 @@ fn save_password(service: String, password: String) {
         },
     );
     save_vault(&vault, None);
-    println!("✅ Password for '{}' saved.", service);
 }
 
 fn parse_length(input: &str) -> usize {
