@@ -3,6 +3,7 @@ mod commands;
 pub mod crypto;
 mod models;
 mod storage;
+mod utils;
 
 use clap::Parser;
 use cli::{Cli, Commands};
@@ -27,8 +28,8 @@ fn main() {
         Commands::List => {
             list::handle_list();
         }
-        Commands::Update { service } => {
-            update::handle_update(&service);
+        Commands::Update => {
+            update::handle_update();
         }
         Commands::Path => {
             let path = storage::get_vault_path();

@@ -42,11 +42,7 @@ pub enum Commands {
     List,
 
     /// Update an existing service or entry in the vault
-    Update {
-        /// The service or entry to update
-        #[arg(help = "Name of service to update")]
-        service: String,
-    },
+    Update,
 
     /// Display the path to the vault file
     Path,
