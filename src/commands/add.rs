@@ -1,3 +1,5 @@
+use std::process::exit;
+
 use crate::models::PasswordEntry;
 use crate::storage::{load_vault, save_vault};
 use crate::utils::copy_to_clipboard::*;
@@ -19,6 +21,8 @@ fn manual_add() {
         .interact_text()
         .unwrap();
 
+    has_service(service.clone());
+
     let password: String = Password::new()
         .with_prompt("Enter password")
         .interact()
@@ -33,6 +37,8 @@ fn generate_and_add() {
         .with_prompt("Enter service name")
         .interact_text()
         .unwrap();
+
+    has_service(service.clone());
 
     let case_options = &["lower", "upper", "mixed"];
     let case_index = Select::new()
@@ -112,4 +118,18 @@ fn generate_password(length: usize, case: &str, use_specials: bool) -> String {
             charset.chars().nth(idx).unwrap()
         })
         .collect()
+}
+
+pub fn has_service(service: String) -> () {
+    let vault = load_vault();
+
+    let is_exists = vault.entries.get(service.as_str()).is_some();
+
+    if is_exists {
+        println!(
+            "❌ Service '{}' already exists. Use 'update' to change it.",
+            service
+        );
+        std::process::exit(1);
+    }
 }
