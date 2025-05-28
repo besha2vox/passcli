@@ -42,7 +42,11 @@ pub enum Commands {
     List,
 
     /// Update an existing service or entry in the vault
-    Update,
+    Update {
+        /// Generate a new random password for the entry
+        #[arg(short, long, help = "Generate a new random password")]
+        generate: bool,
+    },
 
     /// Display the path to the vault file
     Path,

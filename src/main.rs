@@ -28,8 +28,8 @@ fn main() {
         Commands::List => {
             list::handle_list();
         }
-        Commands::Update => {
-            update::handle_update();
+        Commands::Update { generate } => {
+            update::handle_update(generate);
         }
         Commands::Path => {
             let path = storage::get_vault_path();
