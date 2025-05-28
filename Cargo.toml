@@ -17,4 +17,4 @@ arboard = "3.3"                                      # Clipboard support
 aes = "0.8"                                          # AES encryption
 pbkdf2 = "0.12.2"                                    # Password hashing
 sha2 = "0.10.9"                                      # SHA-2 hashing    
-rpassword = "7.0"                                    # Secure password input
+rpassword = "7.4"                                    # Secure password input

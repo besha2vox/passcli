@@ -1,6 +1,5 @@
 use crate::storage::load_vault;
 use crate::utils::copy_to_clipboard::*;
-// use arboard::Clipboard;
 
 pub fn handle_copy(service: &str) {
     let vault = load_vault();
