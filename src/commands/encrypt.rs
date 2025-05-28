@@ -1,7 +1,13 @@
 use crate::storage::{decrypt_vault, load_vault, read_vault_raw, save_vault};
+use crate::utils::is_vault_encrypted::*;
 use rpassword::read_password;
 
 pub fn handle_encrypt() {
+    if is_vault_encrypted() {
+        println!("Vault is already encrypted.");
+        return;
+    }
+
     println!("Enter encryption password:");
     let password = read_password().expect("Failed to read password");
     println!("Confirm encryption password:");
@@ -27,6 +33,11 @@ pub fn handle_encrypt() {
 }
 
 pub fn handle_decrypt() {
+    if !is_vault_encrypted() {
+        println!("Vault is not encrypted.");
+        return;
+    }
+
     println!("Enter decryption password:");
     let password = read_password().expect("Failed to read password");
 
