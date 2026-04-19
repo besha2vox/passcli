@@ -1,7 +1,5 @@
-// use std::path::PathBuf;
+use passcli_core::storage::get_vault_path;
 use std::process::Command;
-
-use crate::storage::get_vault_path;
 
 pub fn handle_open(editor: &str) {
     let path = get_vault_path();

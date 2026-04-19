@@ -13,7 +13,6 @@ pub fn get_vault_path() -> PathBuf {
     path
 }
 
-// Loads the vault from the file system, decrypting it if necessary
 pub fn load_vault() -> Vault {
     let path = get_vault_path();
 
@@ -61,7 +60,6 @@ pub fn load_vault() -> Vault {
     }
 }
 
-// Saves the vault to the file system, encrypting it if necessary
 pub fn save_vault(vault: &Vault, password: Option<&str>) {
     let path = get_vault_path();
 
@@ -76,7 +74,6 @@ pub fn save_vault(vault: &Vault, password: Option<&str>) {
     }
 }
 
-// Reads the vault file as raw bytes without decryption
 pub fn read_vault_raw() -> Vec<u8> {
     let path = get_vault_path();
     fs::read(path).expect("Failed to read vault file")

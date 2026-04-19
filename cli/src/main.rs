@@ -1,13 +1,10 @@
 mod cli;
 mod commands;
-pub mod crypto;
-mod models;
-mod storage;
-mod utils;
 
 use clap::Parser;
 use cli::{Cli, Commands};
 use commands::*;
+use passcli_core::storage;
 
 fn main() {
     let cli = Cli::parse();

@@ -1,4 +1,4 @@
-use crate::storage::{get_vault_path, load_vault};
+use passcli_core::storage::{get_vault_path, load_vault};
 
 pub fn handle_status() {
     let path = get_vault_path();

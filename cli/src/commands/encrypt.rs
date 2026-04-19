@@ -1,5 +1,5 @@
-use crate::storage::{decrypt_vault, load_vault, read_vault_raw, save_vault};
-use crate::utils::is_vault_encrypted::*;
+use passcli_core::storage::{decrypt_vault, load_vault, read_vault_raw, save_vault};
+use passcli_core::utils::is_vault_encrypted::is_vault_encrypted;
 use rpassword::read_password;
 
 pub fn handle_encrypt() {
@@ -26,9 +26,7 @@ pub fn handle_encrypt() {
     }
 
     vault.encrypted = true;
-
     save_vault(&vault, Some(&password));
-
     println!("Vault encrypted successfully.");
 }
 
@@ -57,8 +55,6 @@ pub fn handle_decrypt() {
     }
 
     vault.encrypted = false;
-
     save_vault(&vault, None);
-
     println!("Vault decrypted successfully.");
 }

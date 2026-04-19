@@ -1,14 +1,14 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct PasswordEntry {
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Account {
+    pub username: String,
     pub password: String,
-    pub encrypted: bool,
 }
 
 #[derive(Serialize, Deserialize, Default)]
 pub struct Vault {
-    pub entries: HashMap<String, PasswordEntry>,
+    pub entries: HashMap<String, Vec<Account>>,
     pub encrypted: bool,
 }
