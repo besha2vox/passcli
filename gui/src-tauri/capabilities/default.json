@@ -1,0 +1,8 @@
+{
+  "identifier": "default",
+  "description": "Default capability — grants access to core Tauri APIs",
+  "windows": ["main"],
+  "permissions": [
+    "core:default"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "productName": "passcli",
+  "version": "0.1.0",
+  "identifier": "com.besha2vox.passcli",
+  "build": {
+    "frontendDist": "../.output/public",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "passcli",
+        "width": 900,
+        "height": 650,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  }
+}
